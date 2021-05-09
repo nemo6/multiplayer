@@ -205,31 +205,50 @@
 
 	}catch (error) {}
 
-	document.addEventListener("keypress", function (event) {
+	document.addEventListener("keydown", function (event) {
 
 		// let color           = localStorage.getItem("color")
 		// let player_position = JSON.parse( localStorage.getItem("position") )
 		// let p               = Object.assign({},player_position)
 
+		event.preventDefault()
+
 		let color           = color_player
 		let player_position = joueurs[color_player].position
 		let p               = Object.assign({},joueurs[color_player].position)
 
-		switch (String.fromCharCode(event.keyCode).toUpperCase()) {
+		console.log(event.key)
 
-			case "Z":
+		switch ( event.key ) {
+			case "z":
 				joueurs[color_player].position.y -= 1
 				move(p,player_position,color,true)
 				break
-			case "S":
+			case "s":
 	   		 	joueurs[color_player].position.y += 1
 				move(p,player_position,color,true)
 				break
-			case "Q":
+			case "q":
 				joueurs[color_player].position.x -= 1
 				move(p,player_position,color,true)
 				break
-			case "D":
+			case "d":
+				joueurs[color_player].position.x += 1
+				move(p,player_position,color,true)
+				break
+			case "ArrowUp":
+				joueurs[color_player].position.y -= 1
+				move(p,player_position,color,true)
+				break
+			case "ArrowDown":
+	   		 	joueurs[color_player].position.y += 1
+				move(p,player_position,color,true)
+				break
+			case "ArrowLeft":
+				joueurs[color_player].position.x -= 1
+				move(p,player_position,color,true)
+				break
+			case "ArrowRight":
 				joueurs[color_player].position.x += 1
 				move(p,player_position,color,true)
 				break
