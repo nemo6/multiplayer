@@ -1,3 +1,2 @@
 # Multiplayer
-
-Mini jeu avec Socket.IO et Express
+N/A
